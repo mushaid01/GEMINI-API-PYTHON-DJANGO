@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'test.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+    <section class="chatbox">
+        <section class="chat-window">
+            <article class="msg-container msg-remote" id="msg-remote-0">
+                <div class="msg-box">
+                    <img class="user-img" id="user-remote-0" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" />
+                    <div class="flr">
+                        <div class="messages">
+                            <p class="msg" id="msg-remote-content-0">
+                                {{ ch }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="msg-container msg-self" id="msg-self-0">
+                <div class="msg-box">
+                    <div class="flr">
+                        <div class="messages">
+                            <p class="msg" id="msg-self-content-0">
+                                {{ bot }}
+                            </p>
+                        </div>
+                    </div>
+                    <img class="user-img" id="user-self-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
+                </div>
+            </article>
+        </section>
+    </section>
+    <form class="chat-input" method="post" enctype="multipart/form-data" style="width: 700px ;  height: 100px; display: inline-flex; align-items: center;">
+        {% csrf_token %}
+        <input type="text" placeholder="Type a message" name="input" id="input" style="flex-grow: 1;">
+        <input type="file" name="file" id="file" accept="image/*">
+        <input type="submit" value="Submit">
+    </form>
+    
+    
+    </body>
+    </html>
+    
+</body>
+</html>
